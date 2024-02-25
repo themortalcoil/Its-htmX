@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTMx Flask Example</title>
+    <!-- Include HTMx script -->
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+</head>
+<body>
+    <h1>Welcome to the HTMx Flask Example</h1>
+    <!-- HTMx attribute to load partial content on page load -->
+    <div hx-get="/search" hx-trigger="load" hx-target="#search-results">
+        Loading...
+    </div>
+    <!-- Search input that triggers HTMx request on input event -->
+    <input type="search" hx-get="/search" hx-trigger="keyup changed delay:500ms" hx-target="#search-results" hx-include="*[name='query']" name="query" placeholder="Search..."/>
+    <!-- Container where search results will be displayed -->
+    <div id="search-results"></div>
+</body>
+</html>
